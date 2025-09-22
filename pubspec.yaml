@@ -21,6 +21,10 @@ version: 1.0.0+1
 environment:
   sdk: ^3.8.1
 
+
+
+
+
 # Dependencies specify other packages that your package needs in order to work.
 # To automatically upgrade your package dependencies to the latest versions
 # consider running `flutter pub upgrade --major-versions`. Alternatively,
@@ -34,6 +38,33 @@ dependencies:
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.8
+
+
+  #State managment 
+  flutter_bloc: ^9.1.1
+  #Code generator (Retrofit)
+  freezed: ^3.2.3
+  freezed_annotation: ^3.1.0
+  #Dependency injection
+  get_it: ^8.2.0
+  #Generate code
+  json_annotation: ^4.9.0
+  json_serializable: ^6.11.1 
+  #Networking
+  dio: ^5.9.0
+  retrofit: ^4.7.2
+  retrofit_generator: ^10.0.5
+  pretty_dio_logger: ^1.4.0
+  #Localitaion
+  intl: ^0.20.2
+  easy_localization: ^3.0.8
+  #Splash screen
+  flutter_native_splash: ^2.4.6
+  #Handel svg
+  flutter_svg: ^2.2.1
+  #For adapting screen
+  flutter_screenutil: ^5.9.3
+
 
 dev_dependencies:
   flutter_test:
@@ -58,8 +89,10 @@ flutter:
   uses-material-design: true
 
   # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
+  assets:
+  - assets/images/
+  - assets/svgs/
+  - assets/fonts/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see
