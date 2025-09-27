@@ -11,7 +11,7 @@ class SuppTitle extends StatelessWidget {
       child: Text(
         'Manage and schedule all of your medical appointments easily\n with Docdoc to get a new experience.',
         textAlign: TextAlign.center,
-        style: TextStyles.font11GrayRegular,
+        style: TextStyles.font14GrayRegular,
       ),
     );
   }
