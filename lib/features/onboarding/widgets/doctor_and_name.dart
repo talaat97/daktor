@@ -13,7 +13,7 @@ class DoctorAndName extends StatelessWidget {
       children: [
         SvgPicture.asset('assets/svgs/logo.svg'),
         SizedBox(width: 10.w),
-        Text('Daktor', style: TextStyles.font24Black700Weight),
+        Text('Daktor', style: TextStyles.font24BlackBold),
       ],
     );
   }

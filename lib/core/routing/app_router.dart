@@ -1,7 +1,7 @@
 import 'package:daktor/core/routing/routes.dart';
-import 'package:daktor/features/login/ui/widgets/login_screen.dart';
 import 'package:flutter/material.dart';
 
+import '../../features/login/ui/login_screen.dart';
 import '../../features/onboarding/onboarding_screen.dart';
 
 class AppRouter {
