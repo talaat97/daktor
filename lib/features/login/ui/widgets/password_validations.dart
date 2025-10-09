@@ -1,8 +1,7 @@
 import 'package:daktor/core/theming/colors.dart' show ColorsManager;
 import 'package:flutter/material.dart';
-
+import '../../../../core/theming/style.dart';
 import '../../../../core/helper/spasing.dart';
-import '../../../../core/theming/stryle.dart';
 
 class PasswordValidations extends StatelessWidget {
   final bool hasLowerCase;

@@ -4,7 +4,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 import '../../../../core/routing/routes.dart';
 import '../../../../core/theming/colors.dart';
-import '../../../../core/theming/stryle.dart';
+import '../../../../core/theming/style.dart';
 import '../../cubit/login_cubit.dart';
 import '../../cubit/login_state.dart';
 
