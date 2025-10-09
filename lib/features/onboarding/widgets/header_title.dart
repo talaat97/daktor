@@ -1,4 +1,4 @@
-import 'package:daktor/core/theming/stryle.dart';
+import 'package:daktor/core/theming/style.dart';
 import 'package:flutter/widgets.dart';
 
 class HeaderTitle extends StatelessWidget {

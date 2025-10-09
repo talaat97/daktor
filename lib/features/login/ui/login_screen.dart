@@ -1,9 +1,10 @@
 
+import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
 import '../../../core/helper/spasing.dart';
 
-import '../../../core/theming/stryle.dart';
+import '../../../core/theming/style.dart';
 
 import '../../../core/widgets/app_text_button.dart';
 import '../../../core/widgets/app_text_form_field.dart';
