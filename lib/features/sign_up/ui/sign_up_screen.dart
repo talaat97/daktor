@@ -1,3 +1,4 @@
+import 'package:daktor/features/sign_up/cubit/sign_up_cubit.dart';
 import 'package:daktor/features/sign_up/ui/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

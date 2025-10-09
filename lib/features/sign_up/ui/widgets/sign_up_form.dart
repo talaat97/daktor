@@ -4,8 +4,10 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 
 
+import '../../../../core/helper/app_ragex.dart';
 import '../../../../core/helper/spasing.dart';
 import '../../../../core/widgets/app_text_form_field.dart';
+import '../../../login/ui/widgets/password_validations.dart';
 
 
 class SignupForm extends StatefulWidget {
