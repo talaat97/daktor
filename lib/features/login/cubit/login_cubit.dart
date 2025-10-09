@@ -3,11 +3,15 @@ import 'package:daktor/core/networking/api_result.dart';
 import 'package:daktor/features/login/cubit/login_state.dart';
 import 'package:daktor/features/login/data/model/login_request_body.dart';
 import 'package:daktor/features/login/data/repo/login_repo.dart';
+import 'package:flutter/widgets.dart';
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;
   LoginCubit(this.loginRepo) : super(LoginState.initial());
 
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+  final formKey = GlobalKey<FormState>();
   void emitLoginStates(LoginRequestBody loginRequestBody) async {
     emit(LoginState.loading());
 
