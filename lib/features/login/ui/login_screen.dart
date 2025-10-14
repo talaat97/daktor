@@ -1,5 +1,3 @@
-
-
 import 'package:daktor/features/login/cubit/login_cubit.dart';
 import 'package:daktor/features/login/data/model/login_request_body.dart';
 import 'package:daktor/features/login/ui/widgets/login_bloc_listner.dart';
@@ -12,7 +10,7 @@ import '../../../core/helper/spasing.dart';
 import '../../../core/theming/style.dart';
 
 import '../../../core/widgets/app_text_button.dart';
-import 'widgets/already_have_account_text.dart';
+import 'widgets/dont_have_account.dart';
 import 'widgets/email_and_password.dart';
 
 import 'widgets/terms_and_conditions_text.dart';
@@ -59,7 +57,7 @@ class LoginScreen extends StatelessWidget {
                     verticalSpace(16),
                     const TermsAndConditionsText(),
                     verticalSpace(60),
-                    const AlreadyHaveAccountText(),
+                    const DontHaveAccount(),
                     const LoginBlocListener(),
                   ],
                 ),

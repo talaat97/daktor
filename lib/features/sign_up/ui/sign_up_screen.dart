@@ -1,4 +1,5 @@
 import 'package:daktor/features/sign_up/cubit/sign_up_cubit.dart';
+import 'package:daktor/features/sign_up/ui/widgets/already_have_account_text.dart';
 import 'package:daktor/features/sign_up/ui/widgets/sign_up_form.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -8,7 +9,6 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import '../../../core/helper/spasing.dart';
 import '../../../core/theming/style.dart';
 import '../../../core/widgets/app_text_button.dart';
-import '../../login/ui/widgets/already_have_account_text.dart';
 import '../../login/ui/widgets/terms_and_conditions_text.dart';
 import 'widgets/sign_up_bloc_listner.dart';
 
