@@ -1,5 +1,7 @@
 import 'package:daktor/core/routing/routes.dart';
 import 'package:daktor/features/home/home_screen.dart';
+import 'package:daktor/features/sign_up/cubit/sign_up_cubit.dart';
+import 'package:daktor/features/sign_up/ui/sign_up_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -18,6 +20,13 @@ class AppRouter {
           builder: (_) => BlocProvider(
             create: (context) => getIt<LoginCubit>(),
             child: const LoginScreen(),
+          ),
+        );
+      case Routes.signupScreen:
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) => getIt<SignupCubit>(),
+            child: const SignupScreen(),
           ),
         );
       case Routes.homeScreen:

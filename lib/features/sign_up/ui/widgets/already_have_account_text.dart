@@ -1,6 +1,9 @@
+import 'package:daktor/core/helper/extentions.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
-import '../../../../core/theming/stryle.dart';
+import '../../../../core/routing/routes.dart';
+import '../../../../core/theming/style.dart';
 
 class AlreadyHaveAccountText extends StatelessWidget {
   const AlreadyHaveAccountText({super.key});
@@ -15,7 +18,14 @@ class AlreadyHaveAccountText extends StatelessWidget {
             text: 'Already have an account?',
             style: TextStyles.font13DarkBlueRegular,
           ),
-          TextSpan(text: ' Sign Up', style: TextStyles.font13BlueSemiBold),
+          TextSpan(
+            text: ' Login',
+            style: TextStyles.font13BlueSemiBold,
+            recognizer: TapGestureRecognizer()
+              ..onTap = () {
+                context.pushReplacementNamed(Routes.loginScreen);
+              },
+          ),
         ],
       ),
     );

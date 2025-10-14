@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../routing/routes.dart';
 import '../theming/colors.dart';
-import '../theming/stryle.dart';
+import '../theming/style.dart';
 
 class MaterialButtonApp extends StatelessWidget {
   const MaterialButtonApp({super.key});
