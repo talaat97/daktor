@@ -2,19 +2,35 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "name": "Daktor",
+      "request": "launch",
+      "type": "dart",
+      "program": "lib/main_staging.dart",
+      "args": [
+        "--flavor",
+        "staging"
+      ]
+    },
+    {
       "name": "Daktor (Staging)",
       "request": "launch",
       "type": "dart",
       "program": "lib/main_staging.dart",
-      "args": ["--flavor", "staging"]
+      "args": [
+        "--flavor",
+        "staging"
+      ]
     },
     {
       "name": "Daktor (Production)",
       "request": "launch",
       "type": "dart",
       "flutterMode": "release",
-      "program": "lib/main_development.dart",
-      "args": ["--flavor", "production"]
+      "program": "lib/main_production.dart",
+      "args": [
+        "--flavor",
+        "production"
+      ]
     },
     // {
     //   "name": "Daktor (Dev - Profile Mode)",
