@@ -1,3 +1,4 @@
+import 'package:daktor/features/home/data/models/specializations_response_model.dart';
 import 'package:flutter/material.dart';
 
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -8,15 +9,19 @@ import '../../../../core/helper/spasing.dart';
 import '../../../../core/theming/style.dart';
 
 class DoctorsSpecialityListView extends StatelessWidget {
-  const DoctorsSpecialityListView({super.key});
+  final List<SpecializationsData?> specializtionsList;
+  const DoctorsSpecialityListView({
+    super.key,
+    required this.specializtionsList,
+  });
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      height: 100.h,
+      height: 110,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: 8,
+        itemCount: specializtionsList.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 24.w),
@@ -26,14 +31,13 @@ class DoctorsSpecialityListView extends StatelessWidget {
                   foregroundColor: Colors.red,
                   radius: 28,
                   // backgroundColor: ColorsManager.lightBlue,
-                  child: SvgPicture.asset(
-                    'assets/svgs/doctor.svg',
-                    height: 40.h,
-                    width: 40.w,
-                  ),
+                  child: Text("${specializtionsList[index]?.id}"),
                 ),
                 verticalSpace(8),
-                Text('Omar', style: TextStyles.font12DarkBlueRegular),
+                Text(
+                  "${specializtionsList[index]?.name}",
+                  style: TextStyles.font12DarkBlueRegular,
+                ),
               ],
             ),
           );

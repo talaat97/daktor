@@ -1,4 +1,5 @@
 import 'package:daktor/core/networking/dio_factory.dart';
+import 'package:daktor/features/home/data/apis/home_service.dart';
 import 'package:daktor/features/sign_up/data/repo/sign_up_repo.dart';
 import 'package:dio/dio.dart';
 import 'package:get_it/get_it.dart';
@@ -23,5 +24,6 @@ Future setupGetIt() async {
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
   //Home
+  getIt.registerLazySingleton<HomeApiService>(() => HomeApiService(dio));
   getIt.registerLazySingleton<HomeRepo>(() => HomeRepo(getIt()));
 }
