@@ -1,9 +1,14 @@
 import 'package:bloc/bloc.dart';
+import 'package:daktor/core/helper/shared_pref_helper.dart';
 import 'package:daktor/core/networking/api_result.dart';
 import 'package:daktor/features/login/cubit/login_state.dart';
 import 'package:daktor/features/login/data/model/login_request_body.dart';
 import 'package:daktor/features/login/data/repo/login_repo.dart';
+import 'package:dio/dio.dart';
 import 'package:flutter/widgets.dart';
+
+import '../../../core/helper/constatnt.dart';
+import '../../../core/networking/dio_factory.dart' show DioFactory;
 
 class LoginCubit extends Cubit<LoginState> {
   final LoginRepo loginRepo;
@@ -18,12 +23,20 @@ class LoginCubit extends Cubit<LoginState> {
     final response = await loginRepo.login(loginRequestBody);
 
     response.when(
-      success: (data) {
-        emit(LoginState.success(data));
+      success: (loginResponse) async {
+        await saveToken(loginResponse.userData!.token ?? '');
+        //   isLoggedInUser = true;
+        emit(LoginState.success(loginResponse));
       },
       failure: (error) {
         emit(LoginState.error(message: error.apiErrorModel.message ?? ''));
       },
     );
   }
+}
+
+Future<void> saveToken(String token) async {
+  SharedPrefHelper.setSecuredString(SharedPrefKeys.userToken, token);
+
+  DioFactory.refreshTokenHeader(token);
 }
