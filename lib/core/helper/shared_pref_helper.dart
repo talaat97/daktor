@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+
 class SharedPrefHelper {
   /// Private constructor to prevent instantiation of this utility class.
   SharedPrefHelper._();
@@ -73,7 +74,8 @@ class SharedPrefHelper {
   static setSecuredString(String key, String value) async {
     const flutterSecureStorage = FlutterSecureStorage();
     debugPrint(
-        "FlutterSecureStorage : setSecuredString with key : $key and value : $value");
+      "FlutterSecureStorage : setSecuredString with key : $key and value : $value",
+    );
     await flutterSecureStorage.write(key: key, value: value);
   }
 

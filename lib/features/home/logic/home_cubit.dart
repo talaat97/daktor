@@ -1,9 +1,13 @@
+import 'dart:developer';
+
 import 'package:bloc/bloc.dart';
 import 'package:daktor/core/helper/extentions.dart';
+import 'package:daktor/core/helper/shared_pref_helper.dart';
 import 'package:daktor/core/networking/api_result.dart';
 import 'package:daktor/features/home/data/repos/home_repo.dart' show HomeRepo;
 import 'package:daktor/features/home/logic/home_state.dart';
 
+import '../../../core/helper/constatnt.dart';
 import '../../../core/networking/api_error_handler.dart';
 import '../data/models/specializations_response_model.dart';
 
@@ -13,16 +17,20 @@ class HomeCubit extends Cubit<HomeState> {
 
   List<SpecializationsData?>? specializationsList = [];
   List<Doctors?>? doctorsList = [];
+
   void getSpecializations() async {
+    var token = await SharedPrefHelper.getString(SharedPrefKeys.userToken);
+    log('Saving token : $token');
     emit(HomeState.specializationsLoading());
 
     final response = await _homeRepo.getSpecialization();
 
     response.when(
       success: (specializationsResponseModel) {
-        getDoctorsList(specializationsList?.first?.id ?? 1);
-        specializationsList =  specializationsResponseModel.specializationDataList;
+        specializationsList =
+            specializationsResponseModel.specializationDataList;
         emit(HomeState.specializationsSuccess(specializationsList));
+        getDoctorsList(specializationsList?.first?.id ?? 1);
       },
       failure: (errorHandler) {
         emit(HomeState.specializationsError(errorHandler));
@@ -30,7 +38,7 @@ class HomeCubit extends Cubit<HomeState> {
     );
   }
 
-  void getDoctorsList(int specializationId) {
+  void getDoctorsList(int? specializationId) {
     List<Doctors?>? doctorsList = getDoctorsListBySpecializationId(
       specializationId,
     );

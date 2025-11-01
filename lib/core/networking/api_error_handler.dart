@@ -1,8 +1,9 @@
+// ignore_for_file: constant_identifier_names, non_constant_identifier_names
+
 import 'package:daktor/core/networking/api_constant.dart';
 import 'package:daktor/core/networking/api_error_model.dart';
 import 'package:dio/dio.dart';
 
-// TODO: wallahy I will refactor this .. Omar Ahmed
 enum DataSource {
   NO_CONTENT,
   BAD_REQUEST,
@@ -179,8 +180,6 @@ ApiErrorModel _handleError(DioException error) {
     case DioExceptionType.connectionError:
       return DataSource.DEFAULT.getFailure();
     case DioExceptionType.badCertificate:
-      return DataSource.DEFAULT.getFailure();
-    case DioExceptionType.badResponse:
       return DataSource.DEFAULT.getFailure();
   }
 }
