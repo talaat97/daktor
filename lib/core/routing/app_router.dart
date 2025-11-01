@@ -1,4 +1,6 @@
 import 'package:daktor/core/routing/routes.dart';
+import 'package:daktor/features/home/data/repos/home_repo.dart';
+import 'package:daktor/features/home/logic/home_cubit.dart';
 import 'package:daktor/features/home/ui/home_screen.dart';
 import 'package:daktor/features/sign_up/cubit/sign_up_cubit.dart';
 import 'package:daktor/features/sign_up/ui/sign_up_screen.dart';
@@ -30,7 +32,14 @@ class AppRouter {
           ),
         );
       case Routes.homeScreen:
-        return MaterialPageRoute(builder: (_) => const HomeScreen());
+        return MaterialPageRoute(
+          builder: (_) => BlocProvider(
+            create: (context) =>
+                HomeCubit(getIt<HomeRepo>())..getSpecializations(),
+
+            child: const HomeScreen(),
+          ),
+        );
 
       default:
         return MaterialPageRoute(
