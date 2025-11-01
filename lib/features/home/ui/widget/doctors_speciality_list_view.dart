@@ -9,10 +9,10 @@ import '../../../../core/helper/spasing.dart';
 import '../../../../core/theming/style.dart';
 
 class DoctorsSpecialityListView extends StatelessWidget {
-  final List<SpecializationsData?> specializtionsList;
+  final List<SpecializationsData?> specializationsList;
   const DoctorsSpecialityListView({
     super.key,
-    required this.specializtionsList,
+    required this.specializationsList,
   });
 
   @override
@@ -21,7 +21,7 @@ class DoctorsSpecialityListView extends StatelessWidget {
       height: 110,
       child: ListView.builder(
         scrollDirection: Axis.horizontal,
-        itemCount: specializtionsList.length,
+        itemCount: specializationsList.length,
         itemBuilder: (context, index) {
           return Padding(
             padding: EdgeInsetsDirectional.only(start: index == 0 ? 0 : 24.w),
@@ -31,11 +31,11 @@ class DoctorsSpecialityListView extends StatelessWidget {
                   foregroundColor: Colors.red,
                   radius: 28,
                   // backgroundColor: ColorsManager.lightBlue,
-                  child: Text("${specializtionsList[index]?.id}"),
+                  child: Text("${specializationsList[index]?.id}"),
                 ),
                 verticalSpace(8),
                 Text(
-                  "${specializtionsList[index]?.name}",
+                  "${specializationsList[index]?.name}",
                   style: TextStyles.font12DarkBlueRegular,
                 ),
               ],

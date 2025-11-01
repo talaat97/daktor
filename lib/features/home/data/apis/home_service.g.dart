@@ -8,10 +8,10 @@ part of 'home_service.dart';
 // RetrofitGenerator
 // **************************************************************************
 
-// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter
+// ignore_for_file: unnecessary_brace_in_string_interps,no_leading_underscores_for_local_identifiers,unused_element,unnecessary_string_interpolations,unused_element_parameter,avoid_unused_constructor_parameters,unreachable_from_main
 
 class _HomeApiService implements HomeApiService {
-  _HomeApiService(this._dio, {this.baseUrl, }) {
+  _HomeApiService(this._dio, {this.baseUrl, this.errorLogger}) {
     baseUrl ??= 'https://vcare.integration25.com/api/';
   }
 
@@ -19,7 +19,7 @@ class _HomeApiService implements HomeApiService {
 
   String? baseUrl;
 
-
+  final ParseErrorLogger? errorLogger;
 
   @override
   Future<SpecializationsResponseModel> getSpecialization() async {
@@ -42,7 +42,7 @@ class _HomeApiService implements HomeApiService {
     try {
       _value = SpecializationsResponseModel.fromJson(_result.data!);
     } on Object catch (e, s) {
-  
+      errorLogger?.logError(e, s, _options);
       rethrow;
     }
     return _value;
