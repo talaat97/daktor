@@ -41,7 +41,7 @@ class _HomeApiService implements HomeApiService {
     late SpecializationsResponseModel _value;
     try {
       _value = SpecializationsResponseModel.fromJson(_result.data!);
-    } on Object catch (e, s) {
+    } on Object  {
 
       rethrow;
     }

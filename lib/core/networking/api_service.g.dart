@@ -42,7 +42,7 @@ class _ApiService implements ApiService {
     late LoginResponse _value;
     try {
       _value = LoginResponse.fromJson(_result.data!);
-    } on Object catch (e, s) {
+    } on Object {
   
       rethrow;
     }
@@ -70,7 +70,7 @@ class _ApiService implements ApiService {
     late SignupResponse _value;
     try {
       _value = SignupResponse.fromJson(_result.data!);
-    } on Object catch (e, s) {
+    } on Object {
 
       rethrow;
     }
