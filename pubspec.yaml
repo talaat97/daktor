@@ -70,6 +70,7 @@ dependencies:
   flutter_secure_storage: ^9.2.4
   #how to add shimmer to UI   
   shimmer: ^3.0.0
+  cached_network_image: ^3.4.1
 dev_dependencies:
   flutter_test:
     sdk: flutter

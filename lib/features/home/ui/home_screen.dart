@@ -1,15 +1,11 @@
 import 'package:daktor/core/helper/spasing.dart';
-import 'package:daktor/features/home/data/models/specializations_response_model.dart';
-import 'package:daktor/features/home/logic/home_cubit.dart';
-import 'package:daktor/features/home/logic/home_state.dart';
+import 'package:daktor/features/home/ui/widget/doctor_list/doctor_bloc_builder.dart';
 import 'package:daktor/features/home/ui/widget/doctors_blue_container.dart';
-import 'package:daktor/features/home/ui/widget/doctors_list_view.dart';
 import 'package:daktor/features/home/ui/widget/doctors_speciality_see_all.dart';
+import 'package:daktor/features/home/ui/widget/speciality_list/specializations_bloc_builder.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-import 'widget/doctors_speciality_list_view.dart';
 import 'widget/home_top_bar.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -30,45 +26,10 @@ class HomeScreen extends StatelessWidget {
               const DoctorsBlueContainer(),
               verticalSpace(24.h),
               const DoctorsSpecialitySeeAll(),
-              verticalSpace(18),
-              BlocBuilder<HomeCubit, HomeState>(
-                buildWhen: (_, current) {
-                  return current is SpecializationsSuccess ||
-                      current is SpecializationsLoading ||
-                      current is SpecializationsError;
-                },
-                builder: (context, state) {
-                  return state.maybeWhen(
-                    specializationsLoading: () {
-                      return const Center(child: CircularProgressIndicator());
-                    },
-                    specializationsSuccess: (specializationsList) {
-                      return Expanded(
-                        child: Column(
-                          children: [
-                            DoctorsSpecialityListView(
-                              specializationsList: specializationsList ?? [],
-                            ),
-                      
-            
-                          ],
-                        ),
-                      );
-                    },
-
-                    specializationsError: (errorHandler) {
-                      return Center(
-                        child: Text(
-                          errorHandler.apiErrorModel.message ??
-                              'An error occurred',
-                          style: TextStyle(color: Colors.red, fontSize: 16.sp),
-                        ),
-                      );
-                    },
-                    orElse: () => const SizedBox.shrink(),
-                  );
-                },
-              ),
+              verticalSpace(8),
+              const SpecializationsBlocBuilder(),
+              verticalSpace(8),
+              const DoctorsBlocBuilder(),
             ],
           ),
         ),

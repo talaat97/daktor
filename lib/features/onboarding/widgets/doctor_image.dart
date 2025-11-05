@@ -21,6 +21,7 @@ class DoctorImage extends StatelessWidget {
         Container(
           foregroundDecoration: BoxDecoration(
             gradient: LinearGradient(
+              // ignore: deprecated_member_use
               colors: [Colors.white, Colors.white.withOpacity(0.0)],
               begin: Alignment.bottomCenter,
               end: Alignment.center,
