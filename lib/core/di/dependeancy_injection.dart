@@ -19,7 +19,7 @@ Future setupGetIt() async {
   getIt.registerLazySingleton<ApiService>(() => ApiService(dio));
   //Login
   getIt.registerLazySingleton<LoginRepo>(() => LoginRepo(getIt()));
-  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt<LoginRepo>()));
+  getIt.registerFactory<LoginCubit>(() => LoginCubit(getIt()));
   //SignUp
   getIt.registerLazySingleton<SignUpRepo>(() => SignUpRepo(getIt()));
   getIt.registerFactory<SignupCubit>(() => SignupCubit(getIt()));
